@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             this,
             localReceiver,
             filter,
-            ContextCompat.RECEIVER_EXPORTED
+            ContextCompat.RECEIVER_NOT_EXPORTED
         )
     }
 

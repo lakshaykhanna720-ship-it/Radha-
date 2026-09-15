@@ -55,6 +55,7 @@ class SmsReceiver : BroadcastReceiver() {
 
                 // Broadcast local update to UI activity if running
                 val updateIntent = Intent("com.cabsoundbox.app.TRANSACTION_RECEIVED")
+                updateIntent.setPackage(context.packageName)
                 updateIntent.putExtra("amount", parsed.amount)
                 updateIntent.putExtra("provider", parsed.provider)
                 updateIntent.putExtra("senderName", parsed.senderName)
