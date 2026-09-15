@@ -21,8 +21,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Configure Android SDK Environment
+        run: |
+          echo "ANDROID_HOME=${ANDROID_HOME:-/usr/local/lib/android/sdk}" >> $GITHUB_ENV
+          echo "sdk.dir=${ANDROID_HOME:-/usr/local/lib/android/sdk}" > android/local.properties
+          echo "Configured Android SDK at ${ANDROID_HOME:-/usr/local/lib/android/sdk}"
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -32,7 +35,7 @@ jobs:
       - name: Build Android Debug APK
         working-directory: android
         run: |
-          gradle assembleDebug --stacktrace
+          gradle assembleDebug --no-daemon --stacktrace
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
