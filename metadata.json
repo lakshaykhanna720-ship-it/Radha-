@@ -1,0 +1,6 @@
+{
+  "name": "Cab Driver Soundbox & Earnings",
+  "description": "Smart UPI soundbox, SMS transaction reader, offline voice payment logger, and weekly net earnings calculator for cab drivers.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
